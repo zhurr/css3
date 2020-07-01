@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画效果</title>
+    <style>
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -50%, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes earth {
+            0% {
+                background-position: center;
+            }
+
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        /* @keyframes wave {
+            50% {
+                transform: reanslatex(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translatex(-50%) rotate(360deg);
+            }
+        } */
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        @keyframes mofan {
+            from {
+                transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotateY(360deg) rotateX(0deg);
+            }
+        }
+
+        @keyframes nixuan {
+            from {
+                transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotateY(-360deg) rotateX(0deg);
+            }
+        }
+
+
+        .try1 {
+            color: #42cff3;
+            animation: fadeInDown 2s infinite;
+
+        }
+
+
+
+        .try2 {
+            width: 300px;
+            height: 300px;
+            background-image: url(../img/earth.jpg);
+            border-radius: 50%;
+            background-size: cover;
+            box-shadow: -100px -20px 70px 2px rgb(29, 28, 28) inset, 3px 0 20px rgba(116, 162, 180, 0.493);
+            animation: earth 10s linear infinite;
+            transform: rotate(23.5deg);
+            backface-visibility: hidden;
+
+        }
+
+
+        .try3 {
+            position: relative;
+            width: 50px;
+            height: 200px;
+            border-radius: 0 0 20px 20px;
+            border: 1px solid blue;
+            background: red;
+            margin-left: 100px;
+            overflow: hidden;
+
+        }
+
+        .try3:after {
+            content: "";
+            position: absolute;
+            bottom: 90%;
+            /* left: 55%; */
+            left: -100px;
+            background: #e0f6ef;
+            width: 370px;
+            height: 290px;
+            border-radius: 30%;
+            box-sizing: border-box;
+            transform: translateX(-50%) rotate(0);
+            animation: wave 10s linear infinite;
+        }
+
+        .try4 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 150px 0 0 150px;
+            transform-style: preserve-3d;
+            animation: mofan 5s linear 0s infinite normal;
+            color: white;
+        }
+
+        .try4:hover {
+            animation: nixuan 5s linear 0s infinite normal;
+        }
+
+        .try4 .tt {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #fff;
+            opacity: 0.5;
+        }
+
+        .try4 .t1 {
+            background-color: #000;
+            transform: translateZ(100px);
+        }
+
+        .try4 .t2 {
+            background-color: black;
+            transform: translateZ(-100px);
+        }
+
+        .try4 .t3 {
+            background-color: black;
+            transform: translateX(-100px) rotateY(90deg);
+        }
+
+        .try4 .t4 {
+            background-color: black;
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .try4 .t5 {
+            background-color: black;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .try4 .t6 {
+            background-color: black;
+            transform: translateY(100px) rotateX(90deg);
+        }
+
+        .try4:hover .t1 {
+            transform: translateZ(300px);
+            transition: all 0.3s linear;
+        }
+
+        .try4:hover .t2 {
+            transform: translateZ(-300px);
+            transition: all 0.3s linear;
+        }
+
+        .try4:hover .t3 {
+            transform: translateX(-300px) rotateY(90deg);
+            transition: all 0.3s linear;
+        }
+
+        .try4:hover .t4 {
+            transform: translateX(300px) rotateY(90deg);
+            transition: all 0.3s linear;
+        }
+
+        .try4:hover .t5 {
+            transform: translateY(-300px) rotateX(90deg);
+            transition: all 0.3s linear;
+        }
+
+        .try4:hover .t6 {
+            transform: translateY(300px) rotateX(90deg);
+            transition: all 0.3s linear;
+        }
+    </style>
+
+</head>
+
+<body>
+    渐现渐隐(translate)：<div class="try1">渐现渐隐</div><br />
+    地球(background-position)：<div class="try2"></div><br />
+    流体(圆角色差、rotate)：<div class="try3"></div><br />
+    3d合并展开(transform-style)：<div class="try4">
+        <div class="tt t1">前</div>
+        <div class="tt t2">后</div>
+        <div class="tt t3">左</div>
+        <div class="tt t4">右</div>
+        <div class="tt t5">上</div>
+        <div class="tt t6">下</div>
+    </div><br />
+</body>
+
+</html>
